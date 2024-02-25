@@ -13,14 +13,16 @@ There are already some tests in ./test/test_wordsearch.js, and you can run the t
 You'll find that one of the tests doesn't pass yet, so you'll want to start by editing the code in wordsearch.js to allow the tests to pass.
 
 When the present tests are successful, ask yourself,
-"Do the current tests cover all the possible cases?" 
-What if the word is written vertically, not horizontally? 
+"Do the current tests cover all the possible cases?"
+What if the word is written vertically, not horizontally?
 What about the case where the word matrix is an empty array?
 You'll have to write tests for these cases (and any others that you think of), and you might also have to modify the wordSearch function to make those new tests pass.
 
 Instruction
 Complete the function named wordSearch and ensure that all tests pass. Add any tests that you find necessary.
 */
+
+//contributors @Krisan10 and @charleysmithschofield
 
 const wordSearch = (letters, word) => {
   const horizontalJoin = letters.map(ls => ls.join(''));
@@ -59,7 +61,9 @@ const transpose = function(matrix) {
 
 
 const wordSearchComplete = function(letters, word) {
-
+  if (word.length === 0) {
+    return false;
+  }
   let check = wordSearch(letters, word);
   
   let result = (transpose(letters));
@@ -67,7 +71,7 @@ const wordSearchComplete = function(letters, word) {
   return check;
 };
 
-console.log(wordSearchComplete(letters, "AWC"));
-console.log(wordSearchComplete(letters, "WE"));
+console.log(wordSearchComplete(letters, []));
+//console.log(wordSearchComplete(letters, "WE"));
 
 module.exports = wordSearch;
